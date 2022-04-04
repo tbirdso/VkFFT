@@ -86,6 +86,7 @@ if (MSVC)
 else()
 		set_source_files_properties(Vulkan_FFT.cpp PROPERTIES LANGUAGE CUDA)
 endif()
+        target_include_directories(${PROJECT_NAME} PRIVATE ${CUDA_TOOLKIT_INCLUDE})
 	set_property(TARGET ${PROJECT_NAME} PROPERTY CUDA_ARCHITECTURES 35 60 70 75 80 86)
 	target_compile_options(${PROJECT_NAME} PUBLIC "$<$<COMPILE_LANGUAGE:CUDA>:SHELL:
 	-std=c++11
