@@ -211,6 +211,7 @@ if(build_VkFFT_cuFFT_benchmark)
 	-gencode arch=compute_80,code=compute_80 
 	-gencode arch=compute_86,code=compute_86>")
 	target_include_directories(cuFFT_scripts PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/benchmark_scripts/cuFFT_scripts/include)
+        target_include_directories(cuFFT_scripts PRIVATE ${CUDA_TOOLKIT_INCLUDE})
 	set_target_properties(cuFFT_scripts PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
 	set_target_properties(cuFFT_scripts PROPERTIES CUDA_RESOLVE_DEVICE_SYMBOLS ON)
 	target_link_libraries(${PROJECT_NAME} PUBLIC cuFFT_scripts)
